@@ -49,7 +49,7 @@ function(err, result) {
 
 );
 ```
-3) Send Basic Analytic Event :
+3) Send Basic Analytic Event (Example)
 ```javascript
 var optionsAnalytic = {
 	'deviceID': '112233',
