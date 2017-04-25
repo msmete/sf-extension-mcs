@@ -18,38 +18,59 @@ MCS Extension can be installed via npm easily from our public npm repository. Th
 1) Init your MCS config
 
 ```javascript
-  const MCS_Extension = require('sf-extension-mcs');
-  var MCS = new MCS_Extension();
-  
-  // MCS INIT
-  var options = {
-      'backendId': '3b07f69f-7650-4c11-89e1-8dc9424c43d9',
-      'baseUrl': 'https://smartface-mobilebel.mobileenv.em2.oraclecloud.com:443',
-      'androidApplicationKey': '5cbcf2f5-27da-4b8d-9651-d4e6982a3f7e',
-      'iOSApplicationKey': '90729131-ad3f-49c2-adae-6e1c5b7b9411'
-  };
-  MCS.init(options);
+const MCS_Extension = require('sf-extension-mcs');
+var MCS = new MCS_Extension();
+
+// MCS INIT
+var options = {
+	'backendId': '3b07f69f-7650-4c11-89e1-8dc9424c43d9',
+	'baseUrl': 'https://smartface-mobilebel.mobileenv.em2.oraclecloud.com:443',
+	'androidApplicationKey': '5cbcf2f5-27da-4b8d-9651-d4e6982a3f7e',
+	'iOSApplicationKey': '90729131-ad3f-49c2-adae-6e1c5b7b9411'
+};
+MCS.init(options);
 ```
-2) Login to MCS
+2) Login to MCS (Example)
 ```javascript
-spriteObject.setSprite({
-	sheet: Image.createFromFile("images://spritesheet.png"),
-	frameX: << #frames in axis-X >>, // Number
-	frameY: << #frames in axis-Y >>, // Number
-	frameCount: << #frames in the sheet >> // Number
+MCS.login({
+	'username': usernameTextBox.text,
+	'password': passwordTextBox.text
+},
+
+function(err, result) {
+
+	loadingView.visible = false;
+
+	if (err) {
+		return alert("LOGIN FAILED.  " + err);
+	}
+
+	alert("LOGIN SUCCESS.  " + result);	
+
+);
+```
+3) Send Basic Analytic Event :
+```javascript
+var optionsAnalytic = {
+	'deviceID': '112233',
+	'sessionID': '112233',
+	'eventName': 'sendBasicEvent'
+};
+
+MCS.sendBasicEvent(optionsAnalytic, function(err, result) {
+
+	if (err) {
+		return alert("sendBasicEvent FAILED.  " + err);
+	}
+
+	alert("sendBasicEvent SUCC.  " + result.toString());
+
 });
 ```
-3) Finally you must make the sprite play by using:
-```javascript
-spriteObject.play(<< loop duration in ms >>); // Number
-```
-
-## Sample
-The folder `sample` holds the example codes and the sprite sheet. You can put them into your workspace and start using it. 
 
 ## Need Help?
 
-Please [submit an issue](https://github.com/smartface/sf-extension-spriteview/issues) on GitHub and provide information about your problem.
+Please [submit an issue](https://github.com/msmete/sf-extension-mcs/issues) on GitHub and provide information about your problem.
 
 ## Support & Documentation & Useful Links
 - [Guides](https://developer.smartface.io/)
