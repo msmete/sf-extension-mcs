@@ -63,10 +63,10 @@ const Page1 = extend(Page)(
 
         // MCS INIT
         var options = {
-            'backendId': '3b07f69f-7650-4c11-89e1-8dc9424c43d9',
-            'baseUrl': 'https://smartface-mobilebel.mobileenv.em2.oraclecloud.com:443',
-            'androidApplicationKey': '5cbcf2f5-27da-4b8d-9651-d4e6982a3f7e',
-            'iOSApplicationKey': '90729131-ad3f-49c2-adae-6e1c5b7b9411'
+            'backendId': 'YOUR BACKEND ID',
+            'baseUrl': 'YOUR BASE URL',
+            'androidApplicationKey': 'YOUR ANDROID APP KEY',
+            'iOSApplicationKey': 'YOUR IOS APP KEY'
 
         };
         MCS.init(options);
@@ -90,8 +90,8 @@ function MCS_LOGIN() {
     loadingView.visible = true;
 
     MCS.login({
-            'username': 'mete',
-            'password': 'Smartface1'
+            'username': 'YOUR USER NAME',
+            'password': 'YOUR PASSWORD'
         },
 
         function(err, result) {

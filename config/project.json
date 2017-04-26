@@ -38,7 +38,7 @@
             "publisherId": ""
         },
         "googleCloudMessaging": {
-            "senderID": ""
+            "senderID": "957052217499"
         },
         "googlePlayServices": {
             "inAppPurchaseProductKey": ""
@@ -84,7 +84,7 @@
                         "active": false
                     }
                 },
-                "playerPath": null
+                "playerPath": "android_player.zip"
             },
             "keys": {
                 "project3DesKey": "X2iz2RMFl0C9fcRV/gYl7kIaJh/c+69n",

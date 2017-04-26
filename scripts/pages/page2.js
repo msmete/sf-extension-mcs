@@ -24,7 +24,6 @@ const Page2 = extend(Page)(
 
         usernameTextBox = new TextBox({
             hint: 'Username',
-            text: 'mete',
             textColor: Color.BLACK,
             backgroundColor: Color.WHITE,
             hintTextColor: Color.GRAY,
@@ -36,7 +35,6 @@ const Page2 = extend(Page)(
 
         passwordTextBox = new TextBox({
             hint: 'Password',
-            text: 'Smartface1',
             isPassword: true,
             textColor: Color.BLACK,
             backgroundColor: Color.WHITE,
