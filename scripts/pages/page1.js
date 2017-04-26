@@ -217,7 +217,7 @@ function MCS_DEREGISTER() {
 
 
         loadingView.visible = false;
-        
+
         if (err) {
             return alert("deregisterDeviceToken FAILED.  " + err);
         }
@@ -239,7 +239,7 @@ function MCS_APP_POLICIES() {
     MCS.getAppPolicies(function(err, result) {
 
         loadingView.visible = false;
-        
+
         if (err) {
             return alert("registerDeviceToken FAILED.  " + err);
         }
@@ -277,7 +277,7 @@ function MCS_APICALLER_GET() {
     MCS.apiCallerGetMethod(optionsGetMethod, function(err, result) {
 
         loadingView.visible = false;
-        
+
         if (err) {
             return alert("sendAnalytic FAILED.  " + err);
         }

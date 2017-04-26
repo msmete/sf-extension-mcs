@@ -26,75 +26,75 @@ const Page3 = extend(Page)(
     function(_super) {
         self = this;
         _super(this);
-        
-                    
-            
-            loadingView = loadingViewCreator(99999);
-            
-            
-            myListView = new ListView({
-                flexGrow: 1,
-                rowHeight: 50,
-                marginTop: 0,
-                backgroundColor: Color.WHITE,
-                itemCount: 0,
-                refreshEnabled: false,
+
+
+
+        loadingView = loadingViewCreator(99999);
+
+
+        myListView = new ListView({
+            flexGrow: 1,
+            rowHeight: 50,
+            marginTop: 0,
+            backgroundColor: Color.WHITE,
+            itemCount: 0,
+            refreshEnabled: false,
+        });
+
+        var addFile = new Button({
+            onPress: addfile_onPress,
+            text: 'Add File',
+            height: 50,
+            textAlignment: TextAlignment.MIDCENTER,
+
+        });
+
+
+        myListView.onRowCreate = function() {
+            var myListViewItem = new ListViewItem({
+                padding: 10
             });
 
-            var addFile = new Button({
-                onPress: addfile_onPress,
-                text: 'Add File',
-                height: 50,
-                textAlignment: TextAlignment.MIDCENTER,
-
+            var myLabel = new Label({
+                id: 102,
             });
 
+            myListViewItem.addChild(myLabel);
 
-            myListView.onRowCreate = function() {
-                var myListViewItem = new ListViewItem({
-                    padding: 10
-                });
+            return myListViewItem;
+        };
 
-                var myLabel = new Label({
-                    id: 102,
-                });
+        myListView.onRowBind = function(listViewItem, index) {
 
-                myListViewItem.addChild(myLabel);
+            var myLabel = listViewItem.findChildById(102);
+            myLabel.text = fileArray[index].name;
 
-                return myListViewItem;
-            };
 
-            myListView.onRowBind = function(listViewItem, index) {
 
-                var myLabel = listViewItem.findChildById(102);
-                myLabel.text = fileArray[index].name;
-                
-                
+        };
 
-            };
+        myListView.onRowSelected = function(listViewItem, index) {
 
-            myListView.onRowSelected = function(listViewItem, index) {
-            
-                Router.go('imagePage', {
-                        'collectionId': CollectionID,
-                        'imageId': fileArray[index].id,
-                        'MCS' : MCS
-                });
-                
-            };
+            Router.go('imagePage', {
+                'collectionId': CollectionID,
+                'imageId': fileArray[index].id,
+                'MCS': MCS
+            });
 
-            this.layout.addChild(myListView);
-            this.layout.addChild(addFile);
-            this.layout.addChild(loadingView);
+        };
+
+        this.layout.addChild(myListView);
+        this.layout.addChild(addFile);
+        this.layout.addChild(loadingView);
 
 
         this.onShow = function(params) {
 
-            if (params){
+            if (params) {
                 MCS = params.MCS;
                 getItems();
             }
-                
+
         };
 
 
@@ -104,37 +104,37 @@ const Page3 = extend(Page)(
 
 
 function getItems() {
-    
+
     loadingView.visible = true;
-    
+
     MCS.getCollectionList(
 
-        function(err, result) { // e array dönüyor. collection name leri
-            
+        function(err, result) { 
+
             loadingView.visible = false;
-            
+
             if (err) {
                 return alert("getCollectionList FAILED.  " + err);
             }
 
             CollectionID = result[0].id;
-            
-            
+
+
             loadingView.visible = true;
             //----------------------------------------------
             MCS.getItemListInCollection(CollectionID,
 
-                function(err, result) { // e array dönüyor. collection name leri
-                    
-                    
+                function(err, result) { 
+
+
                     loadingView.visible = false;
-                    
+
                     if (err) {
                         return alert("getItemListInCollection FAILED.  " + err);
                     }
 
                     fileArray = result;
-                    
+
                     myListView.itemCount = result.length;
                     myListView.refreshData();
 
@@ -160,7 +160,7 @@ function addfile_onPress() {
         onSuccess: onSuccess,
         page: self
     });
-    
+
     function onSuccess(picked) {
 
         console.log(JSON.stringify(picked));
@@ -174,27 +174,27 @@ function addfile_onPress() {
 
 
         loadingView.visible = true;
-        
-        var random_number = getRandomArbitrary(1000000000,9999999999);
-        
+
+        var random_number = getRandomArbitrary(1000000000, 9999999999);
+
         MCS.storeItem({
                 'collectionId': CollectionID,
                 'itemName': 'testFile_' + random_number + '.png',
                 'base64EncodeData': base64TestImageData,
                 'contentType': 'image/png'
             },
-            function(err, result) { // e array dönüyor. collection name leri
-                
+            function(err, result) {
+
                 loadingView.visible = false;
-                
+
                 if (err) {
                     return alert("storeItem FAILED.  " + err);
                 }
-                
+
                 alert("File Upload Success : " + 'testFile_' + random_number + '.png');
-                
+
                 getItems();
-                
+
             }
         );
 
@@ -228,7 +228,7 @@ var loadingViewCreator = function(id) {
 };
 
 function getRandomArbitrary(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
 
