@@ -24,9 +24,9 @@ var MCS = new MCS_Extension();
 // MCS INIT
 var options = {
 	'backendId': 'YOUR BACKEND ID',
-    'baseUrl': 'YOUR BASE URL',
-    'androidApplicationKey': 'YOUR ANDROID APP KEY',
-    'iOSApplicationKey': 'YOUR IOS APP KEY'
+	'baseUrl': 'YOUR BASE URL',
+	'androidApplicationKey': 'YOUR ANDROID APP KEY',
+	'iOSApplicationKey': 'YOUR IOS APP KEY'
 };
 MCS.init(options);
 ```
