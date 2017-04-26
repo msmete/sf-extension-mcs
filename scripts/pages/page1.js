@@ -105,38 +105,6 @@ function MCS_LOGIN() {
             alert('Success ' + result);
             loginSuccess = true;
 
-
-
-            /* // TEST ICIN
-                        var options = {
-                            'name': 'mete',
-                            'id': '12'
-                        };
-
-
-                        MCS.getAssetByName(options, function(err, result) {
-
-                            if (err) {
-                                return alert("LOGIN FAILED.  " + err);
-                            }
-
-                            alert('Success ' + result);
-
-
-                        });
-
-                        MCS.getAssetById(options, function(err, result) {
-
-                            if (err) {
-                                return alert("LOGIN FAILED.  " + err);
-                            }
-
-                            alert('Success ' + result);
-
-
-                        });
-
-            */
         }
 
     );
