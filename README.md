@@ -9,7 +9,7 @@ An extension to Oracle MCS Connection with Smartface Native Framework.
 MCS Extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
 
 - Open scripts/package.json file inside your workspace.
-- Add SpriteView extension dependency as:`"sf-extension-mcs": "^1.0.0"`
+- Add MCS extension dependency as:`"sf-extension-mcs": "^1.0.0"`
 - Run command `npm install` under the folder `scripts`
 - Finally require the extension as: `require("sf-extension-mcs")`
 
