@@ -33,8 +33,8 @@ MCS.init(options);
 2) Login to MCS (Example)
 ```javascript
 MCS.login({
-	'username': usernameTextBox.text,
-	'password': passwordTextBox.text
+	'username': 'YOUR USER NAME',
+	'password': 'YOUR PASSWORD'
 },
 
 function(err, result) {
